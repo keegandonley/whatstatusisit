@@ -17,6 +17,7 @@ const { faker } = require("@faker-js/faker");
       .toLocaleTimeString("default", {
         hour: "2-digit",
         minute: "2-digit",
+        hour12: true,
       })
       .split(" ")[0];
 
