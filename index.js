@@ -5,14 +5,6 @@ const { faker } = require("@faker-js/faker");
 
 (async () => {
   const func = async () => {
-    // Instantiate with desired auth type (here's Bearer v2 auth)
-    const userClient = new TwitterApi({
-      accessToken: process.env.ACCESS_TOKEN,
-      accessSecret: process.env.ACCESS_SECRET,
-      appKey: process.env.TWITTER_API_KEY,
-      appSecret: process.env.TWITTER_API_SECRET,
-    });
-
     const def = new Date()
       .toLocaleTimeString("default", {
         hour: "2-digit",
@@ -29,6 +21,14 @@ const { faker } = require("@faker-js/faker");
     const found = codes[code];
 
     if (found) {
+      // Instantiate with desired auth type (here's Bearer v2 auth)
+      const userClient = new TwitterApi({
+        accessToken: process.env.ACCESS_TOKEN,
+        accessSecret: process.env.ACCESS_SECRET,
+        appKey: process.env.TWITTER_API_KEY,
+        appSecret: process.env.TWITTER_API_SECRET,
+      });
+
       const str = `${faker.word.interjection()}! That's a ${found.code}: ${
         found.message
       }! (${found.description.slice(0, 130)}${
