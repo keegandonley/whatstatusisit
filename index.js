@@ -40,8 +40,7 @@ const randomInteger = (min, max) => {
       hours = hours.replace("0", "");
     }
 
-    let code = `${hours}${minutes}`;
-    code = 101;
+    const code = `${hours}${minutes}`;
 
     const found = codes[code];
 
